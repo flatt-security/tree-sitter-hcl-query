@@ -1,5 +1,68 @@
 [
   {
+    "type": "attr_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attr_expr",
+          "named": true
+        },
+        {
+          "type": "collection_value",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "for_expr",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "get_attr",
+          "named": true
+        },
+        {
+          "type": "index_expr",
+          "named": true
+        },
+        {
+          "type": "literal_value",
+          "named": true
+        },
+        {
+          "type": "operation",
+          "named": true
+        },
+        {
+          "type": "shisho_metavariable",
+          "named": true
+        },
+        {
+          "type": "splat_expr",
+          "named": true
+        },
+        {
+          "type": "template_expr",
+          "named": true
+        },
+        {
+          "type": "variable_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "attr_splat",
     "named": true,
     "fields": {},
@@ -46,6 +109,10 @@
       "required": true,
       "types": [
         {
+          "type": "attr_expr",
+          "named": true
+        },
+        {
           "type": "collection_value",
           "named": true
         },
@@ -62,11 +129,7 @@
           "named": true
         },
         {
-          "type": "get_attr",
-          "named": true
-        },
-        {
-          "type": "index",
+          "type": "index_expr",
           "named": true
         },
         {
@@ -82,7 +145,7 @@
           "named": true
         },
         {
-          "type": "splat",
+          "type": "splat_expr",
           "named": true
         },
         {
@@ -248,9 +311,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "attr_expr",
+          "named": true
+        },
         {
           "type": "collection_value",
           "named": true
@@ -272,11 +339,7 @@
           "named": true
         },
         {
-          "type": "get_attr",
-          "named": true
-        },
-        {
-          "type": "index",
+          "type": "index_expr",
           "named": true
         },
         {
@@ -292,7 +355,7 @@
           "named": true
         },
         {
-          "type": "splat",
+          "type": "splat_expr",
           "named": true
         },
         {
@@ -354,6 +417,18 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "shisho_ellipsis",
+          "named": true
+        },
+        {
+          "type": "shisho_ellipsis_metavariable",
+          "named": true
+        },
+        {
+          "type": "shisho_metavariable",
           "named": true
         }
       ]
@@ -459,6 +534,14 @@
         {
           "type": "expression",
           "named": true
+        },
+        {
+          "type": "shisho_ellipsis",
+          "named": true
+        },
+        {
+          "type": "shisho_ellipsis_metavariable",
+          "named": true
         }
       ]
     }
@@ -477,6 +560,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "shisho_metavariable",
           "named": true
         }
       ]
@@ -553,6 +640,69 @@
     }
   },
   {
+    "type": "index_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attr_expr",
+          "named": true
+        },
+        {
+          "type": "collection_value",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "for_expr",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "index",
+          "named": true
+        },
+        {
+          "type": "index_expr",
+          "named": true
+        },
+        {
+          "type": "literal_value",
+          "named": true
+        },
+        {
+          "type": "operation",
+          "named": true
+        },
+        {
+          "type": "shisho_metavariable",
+          "named": true
+        },
+        {
+          "type": "splat_expr",
+          "named": true
+        },
+        {
+          "type": "template_expr",
+          "named": true
+        },
+        {
+          "type": "variable_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "legacy_index",
     "named": true,
     "fields": {}
@@ -622,6 +772,14 @@
         },
         {
           "type": "object_start",
+          "named": true
+        },
+        {
+          "type": "shisho_ellipsis",
+          "named": true
+        },
+        {
+          "type": "shisho_ellipsis_metavariable",
           "named": true
         }
       ]
@@ -757,6 +915,69 @@
         },
         {
           "type": "full_splat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "splat_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attr_expr",
+          "named": true
+        },
+        {
+          "type": "collection_value",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "for_expr",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "index_expr",
+          "named": true
+        },
+        {
+          "type": "literal_value",
+          "named": true
+        },
+        {
+          "type": "operation",
+          "named": true
+        },
+        {
+          "type": "shisho_metavariable",
+          "named": true
+        },
+        {
+          "type": "splat",
+          "named": true
+        },
+        {
+          "type": "splat_expr",
+          "named": true
+        },
+        {
+          "type": "template_expr",
+          "named": true
+        },
+        {
+          "type": "variable_expr",
           "named": true
         }
       ]
@@ -1103,6 +1324,14 @@
           "named": true
         },
         {
+          "type": "shisho_ellipsis",
+          "named": true
+        },
+        {
+          "type": "shisho_ellipsis_metavariable",
+          "named": true
+        },
+        {
           "type": "tuple_end",
           "named": true
         },
@@ -1128,9 +1357,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "attr_expr",
+          "named": true
+        },
         {
           "type": "collection_value",
           "named": true
@@ -1148,11 +1381,7 @@
           "named": true
         },
         {
-          "type": "get_attr",
-          "named": true
-        },
-        {
-          "type": "index",
+          "type": "index_expr",
           "named": true
         },
         {
@@ -1168,7 +1397,7 @@
           "named": true
         },
         {
-          "type": "splat",
+          "type": "splat_expr",
           "named": true
         },
         {

@@ -15,7 +15,7 @@ const PREC = {
 module.exports = grammar({
   name: "hcl",
 
-  conflicts: ($) => [],
+  conflicts: ($) => [[$._expr_term, $.function_call]],
 
   externals: ($) => [
     $.quoted_template_start,
@@ -94,11 +94,15 @@ module.exports = grammar({
         $.function_call,
         $.for_expr,
         $.operation,
-        seq($._expr_term, $.index),
-        seq($._expr_term, $.get_attr),
-        seq($._expr_term, $.splat),
+        $._index_expr_term,
+        $._attr_expr_term,
+        $._splat_expr_term,
         seq("(", $.expression, ")")
       ),
+
+    _index_expr_term: ($) => seq($._expr_term, $.index),
+    _attr_expr_term: ($) => seq($._expr_term, $.get_attr),
+    _splat_expr_term: ($) => seq($._expr_term, $.splat),
 
     literal_value: ($) =>
       choice($.numeric_lit, $.bool_lit, $.null_lit, $.string_lit),
@@ -127,8 +131,17 @@ module.exports = grammar({
 
     _tuple_elems: ($) =>
       seq(
-        $.expression,
-        repeat(seq($._comma, $.expression)),
+        choice($.shisho_ellipsis, $.shisho_ellipsis_metavariable, $.expression),
+        repeat(
+          seq(
+            $._comma,
+            choice(
+              $.shisho_ellipsis,
+              $.shisho_ellipsis_metavariable,
+              $.expression
+            )
+          )
+        ),
         optional($._comma)
       ),
 
@@ -139,8 +152,21 @@ module.exports = grammar({
 
     _object_elems: ($) =>
       seq(
-        $.object_elem,
-        repeat(seq(optional($._comma), $.object_elem)),
+        choice(
+          $.object_elem,
+          $.shisho_ellipsis_metavariable,
+          $.shisho_ellipsis
+        ),
+        repeat(
+          seq(
+            optional($._comma),
+            choice(
+              $.object_elem,
+              $.shisho_ellipsis_metavariable,
+              $.shisho_ellipsis
+            )
+          )
+        ),
         optional($._comma)
       ),
 
@@ -192,8 +218,22 @@ module.exports = grammar({
     for_intro: ($) =>
       seq(
         "for",
-        $.identifier,
-        optional(seq(",", $.identifier)),
+        choice(
+          $.identifier,
+          $.shisho_metavariable,
+          $.shisho_ellipsis,
+          $.shisho_ellipsis_metavariable
+        ),
+        optional(
+          seq(
+            ",",
+            choice(
+              $.identifier,
+              $.shisho_ellipsis,
+              $.shisho_ellipsis_metavariable
+            )
+          )
+        ),
         "in",
         $.expression,
         ":"
@@ -205,7 +245,7 @@ module.exports = grammar({
 
     function_call: ($) =>
       seq(
-        $.identifier,
+        choice($.shisho_metavariable, $.identifier),
         $._function_call_start,
         optional($.function_arguments),
         $._function_call_end
@@ -217,8 +257,21 @@ module.exports = grammar({
     function_arguments: ($) =>
       prec.right(
         seq(
-          $.expression,
-          repeat(seq($._comma, $.expression)),
+          choice(
+            $.expression,
+            $.shisho_ellipsis,
+            $.shisho_ellipsis_metavariable
+          ),
+          repeat(
+            seq(
+              $._comma,
+              choice(
+                $.expression,
+                $.shisho_ellipsis,
+                $.shisho_ellipsis_metavariable
+              )
+            )
+          ),
           optional(choice($._comma, $.ellipsis))
         )
       ),
