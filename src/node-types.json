@@ -78,6 +78,10 @@
           "named": true
         },
         {
+          "type": "shisho_metavariable",
+          "named": true
+        },
+        {
           "type": "splat",
           "named": true
         },
@@ -148,6 +152,18 @@
         {
           "type": "block",
           "named": true
+        },
+        {
+          "type": "shisho_ellipsis",
+          "named": true
+        },
+        {
+          "type": "shisho_ellipsis_metavariable",
+          "named": true
+        },
+        {
+          "type": "shisho_metavariable",
+          "named": true
         }
       ]
     }
@@ -211,6 +227,11 @@
     }
   },
   {
+    "type": "ellipsis",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "expression",
     "named": true,
     "fields": {},
@@ -252,6 +273,10 @@
         },
         {
           "type": "operation",
+          "named": true
+        },
+        {
+          "type": "shisho_metavariable",
           "named": true
         },
         {
@@ -671,6 +696,36 @@
         },
         {
           "type": "template_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "shisho_ellipsis_metavariable",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "shisho_metavariable_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "shisho_metavariable",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "shisho_metavariable_name",
           "named": true
         }
       ]
@@ -1097,6 +1152,10 @@
           "named": true
         },
         {
+          "type": "shisho_metavariable",
+          "named": true
+        },
+        {
           "type": "splat",
           "named": true
         },
@@ -1175,11 +1234,19 @@
     "named": false
   },
   {
+    "type": "...",
+    "named": false
+  },
+  {
     "type": "/",
     "named": false
   },
   {
     "type": ":",
+    "named": false
+  },
+  {
+    "type": ":[",
     "named": false
   },
   {
@@ -1239,10 +1306,6 @@
     "named": true
   },
   {
-    "type": "ellipsis",
-    "named": true
-  },
-  {
     "type": "else",
     "named": false
   },
@@ -1288,6 +1351,14 @@
   },
   {
     "type": "quoted_template_start",
+    "named": true
+  },
+  {
+    "type": "shisho_ellipsis",
+    "named": true
+  },
+  {
+    "type": "shisho_metavariable_name",
     "named": true
   },
   {
