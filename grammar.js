@@ -48,7 +48,8 @@ module.exports = grammar({
           $.block,
           $.shisho_metavariable,
           $.shisho_ellipsis_metavariable,
-          $.shisho_ellipsis
+          $.shisho_ellipsis,
+          $.comment
         )
       ),
 
@@ -94,15 +95,15 @@ module.exports = grammar({
         $.function_call,
         $.for_expr,
         $.operation,
-        $._index_expr_term,
-        $._attr_expr_term,
-        $._splat_expr_term,
+        $.index_expr_term,
+        $.attr_expr_term,
+        $.splat_expr_term,
         seq("(", $.expression, ")")
       ),
 
-    _index_expr_term: ($) => seq($._expr_term, $.index),
-    _attr_expr_term: ($) => seq($._expr_term, $.get_attr),
-    _splat_expr_term: ($) => seq($._expr_term, $.splat),
+    index_expr_term: ($) => seq($._expr_term, $.index),
+    attr_expr_term: ($) => seq($._expr_term, $.get_attr),
+    splat_expr_term: ($) => seq($._expr_term, $.splat),
 
     literal_value: ($) =>
       choice($.numeric_lit, $.bool_lit, $.null_lit, $.string_lit),

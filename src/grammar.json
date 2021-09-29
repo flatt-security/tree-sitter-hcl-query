@@ -92,6 +92,10 @@
           {
             "type": "SYMBOL",
             "name": "shisho_ellipsis"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "comment"
           }
         ]
       }
@@ -269,15 +273,15 @@
         },
         {
           "type": "SYMBOL",
-          "name": "index_expr"
+          "name": "index_expr_term"
         },
         {
           "type": "SYMBOL",
-          "name": "attr_expr"
+          "name": "attr_expr_term"
         },
         {
           "type": "SYMBOL",
-          "name": "splat_expr"
+          "name": "splat_expr_term"
         },
         {
           "type": "SEQ",
@@ -298,7 +302,7 @@
         }
       ]
     },
-    "index_expr": {
+    "index_expr_term": {
       "type": "SEQ",
       "members": [
         {
@@ -311,7 +315,7 @@
         }
       ]
     },
-    "attr_expr": {
+    "attr_expr_term": {
       "type": "SEQ",
       "members": [
         {
@@ -324,7 +328,7 @@
         }
       ]
     },
-    "splat_expr": {
+    "splat_expr_term": {
       "type": "SEQ",
       "members": [
         {
