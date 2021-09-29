@@ -57,7 +57,15 @@ module.exports = grammar({
     block: ($) =>
       seq(
         $.identifier,
-        repeat(choice($.string_lit, $.identifier)),
+        repeat(
+          choice(
+            $.shisho_ellipsis,
+            $.shisho_ellipsis_metavariable,
+            $.shisho_metavariable,
+            $.string_lit,
+            $.identifier
+          )
+        ),
         $.block_start,
         optional($.body),
         $.block_end

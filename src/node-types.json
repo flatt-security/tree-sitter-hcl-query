@@ -121,6 +121,18 @@
           "named": true
         },
         {
+          "type": "shisho_ellipsis",
+          "named": true
+        },
+        {
+          "type": "shisho_ellipsis_metavariable",
+          "named": true
+        },
+        {
+          "type": "shisho_metavariable",
+          "named": true
+        },
+        {
           "type": "string_lit",
           "named": true
         }
